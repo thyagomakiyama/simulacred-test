@@ -1,0 +1,3 @@
+# SimulaCred
+
+Code assessment challenge
