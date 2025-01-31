@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: simulacred
+  devtools:
+    livereload:
+      enabled: true
