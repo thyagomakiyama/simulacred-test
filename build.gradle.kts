@@ -10,6 +10,7 @@ allprojects {
     group = "com.simulacred"
     version = "0.0.1-SNAPSHOT"
     repositories {
+        gradlePluginPortal()
         mavenCentral()
     }
 }
@@ -17,11 +18,10 @@ allprojects {
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
-    apply(plugin = "org.springframework.boot")
-    apply(plugin = "io.spring.dependency-management")
 
     dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib")
+        implementation("org.jetbrains.kotlin:kotlin-reflect")
         testImplementation("org.jetbrains.kotlin:kotlin-test")
     }
 

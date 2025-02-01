@@ -8,10 +8,6 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
-tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
-    enabled = false
-}
-
-tasks.getByName<Jar>("jar") {
-    enabled = true
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
