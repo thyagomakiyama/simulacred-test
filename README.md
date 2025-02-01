@@ -12,6 +12,7 @@ Simulacred is a simple code assessment test project.
 ### Locally
 ```sh
 chmod +x build.sh
+./build.sh
 ./gradlew :api:bootRun
 ```
 
