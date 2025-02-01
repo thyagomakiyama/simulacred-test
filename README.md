@@ -52,8 +52,8 @@ simulacred/
 ├── api/         # API module (Spring WebFlux)
 │   ├── src/
 │   ├── build.gradle.kts
-├── build.sh     # Build script
+├── build.sh     
 ├── settings.gradle.kts
-├── Dockerfile   # Docker configuration
-├── docker-compose.yml  # Docker Compose configuration
+├── Dockerfile   
+├── docker-compose.yml 
 ```
