@@ -21,6 +21,28 @@ chmod +x build.sh
 docker-compose up --build -d
 ```
 
+## Lint
+This project uses ktlint for Kotlin code formatting. To run the linter, use:
+
+```sh
+./gradlew ktlintCheck
+```
+
+If you want to format source, run:
+
+```sh
+./gradlew ktlintFormat
+```
+
+## Tests
+This project uses Kotest for unit testing. To run tests, use:
+
+```sh
+./gradlew test #all tests in project
+./gradlew :core:test #only core test
+./gradlew :api:test #only api test
+```
+
 ## Project Structure
 ```
 simulacred/
