@@ -9,7 +9,7 @@ Simulacred is a simple code assessment test project.
 
 ## How to Run
 
-### Locally
+### Without Docker
 ```sh
 chmod +x build.sh
 ./build.sh
