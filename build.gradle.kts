@@ -6,41 +6,30 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
 }
 
-group = "com"
-version = "0.0.1-SNAPSHOT"
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+allprojects {
+    group = "com.simulacred"
+    version = "0.0.1-SNAPSHOT"
+    repositories {
+        mavenCentral()
     }
 }
 
-repositories {
-    mavenCentral()
-}
+subprojects {
+    apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    apply(plugin = "org.springframework.boot")
+    apply(plugin = "io.spring.dependency-management")
 
-dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.projectreactor:reactor-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-}
-
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.addAll("-Xjsr305=strict")
+    dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib")
+        testImplementation("org.jetbrains.kotlin:kotlin-test")
     }
-}
 
-tasks.withType<Test> {
-    useJUnitPlatform()
+    extensions.configure<JavaPluginExtension> {
+        toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }
