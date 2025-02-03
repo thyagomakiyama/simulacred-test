@@ -1,13 +1,17 @@
 package com.simulacred.domain.simulation
 
+import com.simulacred.domain.borrower.isValidEmail
+
 class Simulation private constructor(
     val id: String,
+    val borrowerEmail: String,
     val totalToBePaid: Amount,
     val monthlyInstallment: Amount,
     val totalInterestPaid: Amount,
 ) {
     class Builder {
         private var id: String? = null
+        private var borrowerEmail: String? = null
         private var totalToBePaid: Amount? = null
         private var monthlyInstallment: Amount? = null
         private var totalInterestPaid: Amount? = null
@@ -15,6 +19,11 @@ class Simulation private constructor(
         fun id(id: String) =
             apply {
                 this.id = id
+            }
+
+        fun borrowerEmail(email: String) =
+            apply {
+                this.borrowerEmail = email
             }
 
         fun totalToBePaid(amount: Amount) =
@@ -34,11 +43,13 @@ class Simulation private constructor(
 
         fun build(): Simulation {
             requireNotNull(id) { "Id must be provided" }
+            requireNotNull(borrowerEmail) { "Borrower email must be provided" }
+            require(borrowerEmail!!.isValidEmail()) { "Invalid borrower email: $borrowerEmail" }
             requireNotNull(totalToBePaid) { "Total to be paid must be provided" }
             requireNotNull(monthlyInstallment) { "Monthly installment must be provided" }
             requireNotNull(totalInterestPaid) { "Total interest paid must be provided" }
 
-            return Simulation(id!!, totalToBePaid!!, monthlyInstallment!!, totalInterestPaid!!)
+            return Simulation(id!!, borrowerEmail!!, totalToBePaid!!, monthlyInstallment!!, totalInterestPaid!!)
         }
     }
 }

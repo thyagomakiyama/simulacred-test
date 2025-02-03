@@ -40,6 +40,7 @@ object LoanSimulationCalculator {
 
         return Simulation.Builder()
             .id(UUID.randomUUID().toString())
+            .borrowerEmail(input.borrower.email)
             .totalToBePaid(totalToBePaid)
             .monthlyInstallment(monthlyInstallment)
             .totalInterestPaid(totalInterestPaid)

@@ -37,5 +37,6 @@ class LoanSimulationCalculatorTest : StringSpec({
         simulation.totalInterestPaid.value shouldBe expectedTotalInterestPaid
         simulation.totalInterestPaid.currency shouldBe "BRL"
         simulation.id.isNotBlank() shouldBe true
+        simulation.borrowerEmail shouldBe borrower.email
     }
 })
