@@ -8,10 +8,11 @@ import java.time.LocalDate
 
 class LoanSimulationInputTest : StringSpec({
     val loanAmount = Amount.Builder().value(5000).currency("BRL").build()
-    val borrower = Borrower.Builder()
-        .email("test@test.com")
-        .birthDate(LocalDate.now().minusYears(18))
-        .build()
+    val borrower =
+        Borrower.Builder()
+            .email("test@test.com")
+            .birthDate(LocalDate.now().minusYears(18))
+            .build()
     val paymentTermMonths = 24
 
     "should throw exception if borrower not provided" {

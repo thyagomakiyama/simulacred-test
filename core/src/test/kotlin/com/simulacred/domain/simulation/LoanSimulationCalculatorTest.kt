@@ -2,26 +2,27 @@ package com.simulacred.domain.simulation
 
 import com.simulacred.domain.borrower.Borrower
 import io.kotest.core.spec.style.StringSpec
-
 import io.kotest.matchers.shouldBe
 import java.time.LocalDate
 
 class LoanSimulationCalculatorTest : StringSpec({
     fun loanAmount(value: Long) = Amount.Builder().value(value).currency("BRL").build()
-    val borrower = Borrower.Builder()
-        .email("test@test.com")
-        .birthDate(LocalDate.now().minusYears(29))
-        .build()
+    val borrower =
+        Borrower.Builder()
+            .email("test@test.com")
+            .birthDate(LocalDate.now().minusYears(29))
+            .build()
 
     "should calculate and build simulation correctly for a given input" {
         val loanAmount = loanAmount(100000)
         val paymentTermMonths = 12
 
-        val input = LoanSimulationInput.Builder()
-            .borrower(borrower)
-            .loanAmount(loanAmount)
-            .paymentTermMonths(paymentTermMonths)
-            .build()
+        val input =
+            LoanSimulationInput.Builder()
+                .borrower(borrower)
+                .loanAmount(loanAmount)
+                .paymentTermMonths(paymentTermMonths)
+                .build()
 
         val simulation = LoanSimulationCalculator.calculateAndBuildSimulation(input)
 

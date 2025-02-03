@@ -1,7 +1,5 @@
 package com.simulacred.domain.simulation
 
-import java.math.BigDecimal
-import java.math.MathContext
 import java.math.RoundingMode
 import java.util.UUID
 import kotlin.math.pow
@@ -21,16 +19,17 @@ object LoanSimulationCalculator {
             .build()
     }
 
-    private fun Amount.calculateTotalToBePaid(paymentTermMonths: Int): Amount = Amount.Builder()
-        .value(value.times(paymentTermMonths))
-        .currency(currency)
-        .build()
+    private fun Amount.calculateTotalToBePaid(paymentTermMonths: Int): Amount =
+        Amount.Builder()
+            .value(value.times(paymentTermMonths))
+            .currency(currency)
+            .build()
 
-
-    private fun Amount.calculateTotalInterestPaid(loanAmount: Amount): Amount = Amount.Builder()
-        .value(value - loanAmount.value)
-        .currency(currency)
-        .build()
+    private fun Amount.calculateTotalInterestPaid(loanAmount: Amount): Amount =
+        Amount.Builder()
+            .value(value - loanAmount.value)
+            .currency(currency)
+            .build()
 
     fun calculateAndBuildSimulation(input: LoanSimulationInput): Simulation {
         val interestRate = InterestRateCalculator.monthlyRate(input.borrower.age())

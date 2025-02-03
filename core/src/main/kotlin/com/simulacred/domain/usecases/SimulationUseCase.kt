@@ -8,7 +8,7 @@ import com.simulacred.domain.simulation.Simulation
 
 class SimulationUseCase(
     private val logger: Logger,
-    private val repository: SimulationRepository
+    private val repository: SimulationRepository,
 ) : UseCase<LoanSimulationInput, Simulation> {
     override suspend fun handle(input: LoanSimulationInput): Simulation {
         logger.info("Calculate loan simulation to ${input.borrower.email}")
