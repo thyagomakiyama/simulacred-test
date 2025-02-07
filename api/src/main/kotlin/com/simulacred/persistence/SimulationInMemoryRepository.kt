@@ -5,7 +5,7 @@ import com.simulacred.domain.simulation.Simulation
 import org.springframework.stereotype.Component
 
 @Component
-class SimulationInMemoryRepository : SimulationRepository{
+class SimulationInMemoryRepository : SimulationRepository {
     private val simulations = mutableListOf<Simulation>()
 
     override suspend fun store(simulation: Simulation) {

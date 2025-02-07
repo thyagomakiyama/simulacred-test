@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class SimulationUseCaseConfig(
     private val logger: Logger,
-    private val simulationInMemoryRepository: SimulationInMemoryRepository
+    private val simulationInMemoryRepository: SimulationInMemoryRepository,
 ) {
     @Bean
     fun simulationUseCase(): SimulationUseCase = SimulationUseCase(logger, simulationInMemoryRepository)

@@ -16,11 +16,12 @@ class SimulationUseCaseTest : StringSpec({
     val simulationUseCase = SimulationUseCase(logger, repository)
 
     "should persists simulation" {
-        val input = LoanSimulationInput.Builder()
-            .borrower(Borrower.Builder().email("test@test.com").birthDate(LocalDate.now().minusYears(18)).build())
-            .loanAmount(Amount.Builder().currency("BRL").value(100000).build())
-            .paymentTermMonths(12)
-            .build()
+        val input =
+            LoanSimulationInput.Builder()
+                .borrower(Borrower.Builder().email("test@test.com").birthDate(LocalDate.now().minusYears(18)).build())
+                .loanAmount(Amount.Builder().currency("BRL").value(100000).build())
+                .paymentTermMonths(12)
+                .build()
 
         simulationUseCase.handle(input)
 

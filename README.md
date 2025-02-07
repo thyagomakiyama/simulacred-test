@@ -57,3 +57,11 @@ simulacred/
 ├── Dockerfile   
 ├── docker-compose.yml 
 ```
+
+## API Documentation
+
+The API documentation is available through Swagger. You can access it by navigating to:
+
+📌 [Swagger UI](https://locahost:8080/api-doc)
+
+This interface allows you to explore available endpoints, view request and response structures, and test API calls interactively. Make sure the server is running before accessing the documentation.
